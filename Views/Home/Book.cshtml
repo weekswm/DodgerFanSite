@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Book";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Books</title>
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    </head>
+    <body>
+        <nav>
+            <a class="btn btn-primary" asp-action="Index">Home</a>
+            <a class="btn btn-primary" asp-action="Book">Books</a>
+            <a class="btn btn-primary" asp-action="History">History</a>
+            <a class="btn btn-primary" asp-action="Sources">Sources</a>
+            <a class="btn btn-primary" asp-action="Links">Links</a>
+            <a class="btn btn-primary" asp-action="Stories">Stories</a>
+        </nav>
+        <div class="text-center">
+            <h1 class="display-4">Books</h1>
+            <p>This page will list Books about the LA Dodgers.</p>
+        </div>
+    </body>
+</html>
