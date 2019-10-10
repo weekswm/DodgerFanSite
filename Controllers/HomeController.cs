@@ -39,7 +39,20 @@ namespace DodgersFanSite.Controllers
         }
         public ViewResult Stories()
         {
+            List<Story> stories = StoryRepository.Stories;
             return View();
+        }
+
+        public ViewResult ViewStories()
+        {
+            return View();
+        }
+
+        public RedirectToActionResult ParseData()
+        {
+
+
+            return RedirectToAction("ViewStories");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

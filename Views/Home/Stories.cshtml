@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Stories</title>
+        <title>Add Stories</title>
         <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     </head>
     <body>
@@ -21,11 +21,74 @@
             <a class="btn btn-primary" asp-action="History">History</a>
             <a class="btn btn-primary" asp-action="Sources">Sources</a>
             <a class="btn btn-primary" asp-action="Links">Links</a>
-            <a class="btn btn-primary" asp-action="Stories">Stories</a>
+            <a class="btn btn-primary" asp-action="Stories">Add Stories</a>
+            <a class="btn btn-primary" asp-action="ViewStories">View Stories</a>
         </nav>
         <div class="text-center">
-            <h1 class="display-4">Stories</h1>
-            <p>This page will have fan stories about the LA Dodgers.</p>
+            <h1 class="display-4">Add Your Stories</h1>
+            <p>This page will have fan can add their stories about the LA Dodgers.</p>
         </div>
+        <div class="container">
+
+            <form class="well form-horizontal" asp-controller="Home" asp-action="ParseData" method="post" id="contact_form">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend><center><h2><b>Story Form</b></h2></center></legend><br>
+
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">Username</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="user_name" placeholder="Username" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">E-Mail</label>
+                        <div class="col-md-6 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">Story</label>
+                        <div class="col-12 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input name="email" placeholder="Your Story Here" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Select Basic -->
+                    <!-- Success message -->
+                    <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-6 control-label"></label>
+                        <div class="col-md-6">
+                            <br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+        </div><!-- /.container -->
     </body>
 </html>
