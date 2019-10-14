@@ -12,7 +12,7 @@ namespace DodgersFanSite.Models
         private static List<Story> stories = new List<Story>();
 
         public static List<Story> Stories { get { return stories; } }
-        public static void AddBook(Story story)
+        public static void AddStory(Story story)
         {
             stories.Add(story);
         }

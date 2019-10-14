@@ -7,7 +7,8 @@ namespace DodgersFanSite.Models
 {
     public class Story
     {
-        public string StoryText { get; set; }
+        public string Title { get; set; }
         public User StoryTeller { get; set; }
+        public string StoryText { get; set; }
     }
 }

@@ -1,0 +1,45 @@
+﻿@model List<Story>
+@{
+    ViewData["Title"] = "ViewStories";
+}
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View Stories</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <nav>
+        <a class="btn btn-primary" asp-action="Index">Home</a>
+        <a class="btn btn-primary" asp-action="History">History</a>
+        <a class="btn btn-primary" asp-controller="Sources" asp-action="Sources">Sources</a>
+        <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Stories</a>
+        <a class="btn btn-primary" asp-controller="Story" asp-action="ViewStories">View Stories</a>
+    </nav>
+    <div class="text-center">
+        <h1 class="display-4">View Stories</h1>
+    </div>
+    <div>
+        List of Stories:
+        @foreach (Story story in Model)
+        {
+            @story.Title; <br />
+            @story.StoryTeller.Name; <br />
+            @story.StoryText; <br />
+            <br />
+        }
+        <br>
+        <p>No comments yet</p>
+        <a href="AddStory">Add a Story</a><br />
+        <a href="/Home">Home</a>
+    </div>
+</body>
+</html>
+
