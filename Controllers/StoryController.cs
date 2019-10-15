@@ -32,7 +32,7 @@ namespace DodgersFanSite.Controllers
         public IActionResult ViewStories()
         {
             List<Story> stories = StoryRepository.Stories;
-            return View();
+            return View(stories);
         }
 
         public IActionResult AddStory()
@@ -42,12 +42,13 @@ namespace DodgersFanSite.Controllers
 
         [HttpPost]
         public RedirectToActionResult AddStory(string title,
-                                              User storyTeller, 
+                                              string storyTeller, 
                                               string storyText)
         {
             story = new Story();
             story.Title = title;
-            story.StoryTeller = storyTeller;
+            story.StoryTeller = new User();
+            story.StoryTeller.Name = storyTeller;
             story.StoryText = storyText;
             StoryRepository.AddStory(story);  // this is temporary, in the future the data will go in a database
 
