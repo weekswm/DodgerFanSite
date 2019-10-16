@@ -23,13 +23,22 @@
             <a class="btn btn-primary" asp-controller="Story" asp-action="Stories">View Stories</a>
         </nav>
         <div class="text-center">
+            <br />
             <h1 class="display-4">Sources</h1>
+            <br />
             <h3>Here are some sources of information about the LA Dodgers franchise:</h3>
         </div>
-    
-        <ul style="list-style-type: none">
-            <li><a class="btn btn-primary" asp-controller="Sources" asp-action="Book">Books</a></li>
-            <li><a class="btn btn-primary" asp-controller="Sources" asp-action="Links">Links</a></li>
-        </ul>
-    </body>
+        <div class="text-center row justify-content-md-center">
+            <div class="col col-lg-8">
+                <br>
+                <a class="btn btn-primary btn-lg btn-block" asp-controller="Sources" asp-action="Book">Books</a>
+            </div>
+        </div>
+        <div class="text-center row justify-content-md-center">
+            <div class="col col-lg-8">
+                <br>
+                <a class="btn btn-primary btn-lg btn-block" asp-controller="Sources" asp-action="Links">Links</a>
+            </div>
+        </div>
+</body>
 </html>
