@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,11 +46,15 @@ namespace DodgersFanSite.Controllers
                                               string storyTeller, 
                                               string storyText)
         {
-            story = new Story();
-            story.Title = title;
-            story.StoryTeller = new User();
-            story.StoryTeller.Name = storyTeller;
-            story.StoryText = storyText;
+            story = new Story
+            {
+                Title = title,
+                StoryTeller = new User
+                {
+                    Name = storyTeller
+                },
+                StoryText = storyText
+            };
             StoryRepository.AddStory(story);  // this is temporary, in the future the data will go in a database
 
             return RedirectToAction("ViewStories");
