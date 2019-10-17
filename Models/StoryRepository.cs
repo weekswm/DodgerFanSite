@@ -8,7 +8,7 @@ namespace DodgersFanSite.Models
 {
     // This class is temporary and just for testing.
     // Ultimately, data will be stored in a database
-    public class StoryRepository : IEnumerable<Story>
+    public class StoryRepository
     {
         private static List<Story> stories = new List<Story>();
 
@@ -17,23 +17,7 @@ namespace DodgersFanSite.Models
         {
             stories.Add(story);
         }
-
-        public IEnumerator<Story> GetEnumerator()
-        {
-            foreach (Story s in stories)
-            {
-                yield return s;
-            }
-        }
-
-        IEnumerator<Story> IEnumerable<Story>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
+
