@@ -22,22 +22,23 @@
         <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Stories</a>
         <a class="btn btn-primary" asp-controller="Story" asp-action="ViewStories">View Stories</a>
     </nav>
+    <br />
     <div class="text-center">
         <h1 class="display-4">Books</h1>
         <h3>Here are some fantastic books about the LA Dodgers</h3>
     </div>
-    <br />
-    <div class="text-center">
-        <ul>
+    <br /><br />
+    <div class="text-lg-left">
+        <ul style="list-style: none">
             @foreach (Book b in Model)
             {
-            <li>
-                <h2> @b.Title </h2>
-                @b.Author;<br />
-                @b.PubDate;
-                <br />
-                <br />
-            </li>
+                <li>
+                    <h2> @b.Title </h2>
+                    by @b.Author <br />
+                    @b.PubDate.ToString("MMMM dd, yyyy")
+                    <br />
+                    <br />
+                </li>
             }
         </ul>
     </div>

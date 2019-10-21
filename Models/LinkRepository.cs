@@ -38,13 +38,35 @@ namespace DodgersFanSite.Models
             link = new Link()
             {
                 Website = "https://bleacherreport.com/los-angeles-dodgers",
-                Desc = "Bleacher Report"
+                Desc = "Bleacher Report: LA Dodgers Page"
             };
+            links.Add(link);
 
             link = new Link()
             {
                 Website = "https://www.dodgersnation.com",
                 Desc = "Dodgers Nation"
+            };
+            links.Add(link);
+
+            link = new Link()
+            {
+                Website = "https://twitter.com/Dodgers",
+                Desc = "LA Dodgers Twitter Page"
+            };
+            links.Add(link);
+
+            link = new Link()
+            {
+                Website = "https://www.cbssports.com/mlb/teams/LAD/los-angeles-dodgers/",
+                Desc = "CBS Sports: LA Dodgers Page"
+            };
+            links.Add(link);
+
+            link = new Link()
+            {
+                Website = "https://www.espn.com/mlb/team/_/name/lad/los-angeles-dodgers",
+                Desc = "ESPN: LA Dodgers Page"
             };
             links.Add(link);
         }
