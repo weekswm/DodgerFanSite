@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Link>
+@{
     ViewData["Title"] = "Links";
 }
 
@@ -23,7 +24,20 @@
     </nav>
     <div class="text-center">
         <h1 class="display-4">Links</h1>
-        <p>Learn about <a href="https://www.mlb.com/dodgers">the LA Dodgers!</a>.</p>
+        <h3>Learn about <a href="https://www.mlb.com/dodgers">the LA Dodgers!</a></h3>
+    </div>
+    <br />
+    <br />
+    <div class="text-center">
+        <ul style="list-style: none">
+            @foreach (Link l in Model)
+            {
+                <li>
+                    <h2><a href="@l.Website"> @l.Desc </a></h2>
+                    <br />
+                </li>
+            }
+        </ul>
     </div>
 </body>
 </html>

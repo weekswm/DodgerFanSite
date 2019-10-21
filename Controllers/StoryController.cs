@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DodgersFanSite.Models;
+using System.Web;
 
 namespace DodgersFanSite.Controllers
 {
@@ -33,6 +34,7 @@ namespace DodgersFanSite.Controllers
         public IActionResult ViewStories()
         {
             List<Story> stories = StoryRepository.Stories;
+            stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             return View(stories);
         }
 
@@ -57,6 +59,25 @@ namespace DodgersFanSite.Controllers
             };
             StoryRepository.AddStory(story);  // this is temporary, in the future the data will go in a database
 
+            return RedirectToAction("ViewStories");
+        }
+
+        public IActionResult AddComment(string title)
+        {
+            return View("AddComment", HttpUtility.HtmlDecode(title));
+        }
+
+        [HttpPost]
+        public RedirectToActionResult AddComment(string title,
+                                                string commentText,
+                                                string commenter)
+        {
+            Story story = StoryRepository.GetUserStoryByTitle(title);
+            story.Comments.Add(new Comment()
+            {
+                Commenter = new User() { Name = commenter },
+                CommentText = commentText
+            });
             return RedirectToAction("ViewStories");
         }
     }

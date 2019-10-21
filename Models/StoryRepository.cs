@@ -17,6 +17,12 @@ namespace DodgersFanSite.Models
         {
             stories.Add(story);
         }
+
+        public static Story GetUserStoryByTitle(string title)
+        {
+            Story story = stories.Find(s => s.Title == title);
+            return story;
+        }
     }
 
 }

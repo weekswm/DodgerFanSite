@@ -16,12 +16,16 @@ namespace DodgersFanSite.Controllers
 
         public ViewResult Book()
         {
-            return View();
+            List<Book> books = BookRepository.Books;
+            books.Sort((b1, b2) => string.Compare(b1.Title, b2.Title, StringComparison.Ordinal));
+            return View(books);
         }
 
         public ViewResult Links()
         {
-            return View();
+            List<Link> links = LinkRepository.Links;
+            links.Sort((l1, l2) => string.Compare(l1.Desc, l2.Desc, StringComparison.Ordinal));
+            return View(links);
         }
     }
 }

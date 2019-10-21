@@ -8,7 +8,6 @@ namespace DodgersFanSite.Models
     public class Comment
     {
         public string CommentText { get; set; }
-        public User UserName { get; set; }
-        public Story UserStory { get; set; }
+        public User Commenter { get; set; }
     }
 }

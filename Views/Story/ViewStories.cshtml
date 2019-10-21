@@ -34,6 +34,19 @@
             @story.StoryTeller.Name; <br />
             @story.StoryText; <br />
             <br />
+            @if (story.Comments.Count > 0)
+            {
+                <h3>Comments</h3>
+                @foreach (Comment c in story.Comments)
+                {
+                    @c.CommentText <br />
+                }
+                <br />
+            }
+            <div class="col-md-4">
+                <br>
+                <a class="btn btn-primary" asp-action="AddComment" asp-route-title="@story.Title">Add a Comment</a>
+            </div>
         }
         <br>
         <p>No comments yet</p>

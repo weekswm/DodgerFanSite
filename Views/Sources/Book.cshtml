@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Book>
+@{
     ViewData["Title"] = "Book";
 }
 
@@ -8,22 +9,37 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Books</title>
-        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    </head>
-    <body>
-        <nav>
-            <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
-            <a class="btn btn-primary" asp-controller="Home" asp-action="History">History</a>
-            <a class="btn btn-primary" asp-controller="Sources" asp-action="Sources">Sources</a>
-            <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Stories</a>
-            <a class="btn btn-primary" asp-controller="Story" asp-action="ViewStories">View Stories</a>
-        </nav>
-        <div class="text-center">
-            <h1 class="display-4">Books</h1>
-            <p>This page will list Books about the LA Dodgers.</p>
-        </div>
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Books</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <nav>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="History">History</a>
+        <a class="btn btn-primary" asp-controller="Sources" asp-action="Sources">Sources</a>
+        <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Stories</a>
+        <a class="btn btn-primary" asp-controller="Story" asp-action="ViewStories">View Stories</a>
+    </nav>
+    <div class="text-center">
+        <h1 class="display-4">Books</h1>
+        <h3>Here are some fantastic books about the LA Dodgers</h3>
+    </div>
+    <br />
+    <div class="text-center">
+        <ul>
+            @foreach (Book b in Model)
+            {
+            <li>
+                <h2> @b.Title </h2>
+                @b.Author;<br />
+                @b.PubDate;
+                <br />
+                <br />
+            </li>
+            }
+        </ul>
+    </div>
+</body>
 </html>
