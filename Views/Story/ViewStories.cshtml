@@ -4,30 +4,16 @@
 }
 
 @{
-    Layout = null;
+    //Layout = null;
 }
 
-
-<!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View Stories</title>
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-</head>
 <body>
-    <nav>
-        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
-        <a class="btn btn-primary" asp-controller="Home" asp-action="History">History</a>
-        <a class="btn btn-primary" asp-controller="Sources" asp-action="Sources">Sources</a>
-        <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Stories</a>
-        <a class="btn btn-primary" asp-controller="Story" asp-action="ViewStories">View Stories</a>
-    </nav>
     <div class="text-center">
         <h1 class="display-4">View Stories</h1>
     </div>
     <div>
-        List of Stories:
+        List of Stories:<br />
         @foreach (Story story in Model)
         {
             @story.Title; <br />
@@ -36,7 +22,7 @@
             <br />
             @if (story.Comments.Count > 0)
             {
-                <h3>Comments</h3>
+                <h4>Comments</h4>
                 @foreach (Comment c in story.Comments)
                 {
                     @c.CommentText <br />
@@ -49,7 +35,6 @@
             </div>
         }
         <br>
-        <p>No comments yet</p>
         <a href="AddStory">Add a Story</a><br />
         <a href="/Home">Home</a>
     </div>
