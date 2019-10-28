@@ -10,10 +10,10 @@
 <html>
 <body>
     <div class="text-center">
-        <h1 class="display-4">View Stories</h1>
+        <h1 class="display-4">Fan Stories</h1>
     </div>
     <div>
-        List of Stories:<br />
+        <br />
         @foreach (Story story in Model)
         {
             @story.Title; <br />
@@ -30,13 +30,13 @@
                 <br />
             }
             <div class="col-md-4">
-                <br>
                 <a class="btn btn-primary" asp-action="AddComment" asp-route-title="@story.Title">Add a Comment</a>
+            </div><br />            
+            <div class="col-md-4">
+                <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Your Story</a>
             </div>
         }
         <br>
-        <a href="AddStory">Add a Story</a><br />
-        <a href="/Home">Home</a>
     </div>
 </body>
 </html>
