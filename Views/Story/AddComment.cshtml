@@ -17,7 +17,7 @@
     <div class="container">
         <form method="post">
             <div class="form-group">
-                <label class="col-md-4 control-label">Commenter</label>
+                <label class="col-md-4 control-label" asp-for="@Model">Commenter</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
                         <input name="commenter" placeholder="Your Name" class="form-control" type="text">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label">Comment</label>
+                <label class="col-md-4 control-label" asp-for="@Model">Comment</label>
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <textarea class="form-control" name="commentText" placeholder="As a fellow fan of the LA Dodgers..." rows="3"></textarea>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label"></label>
+                <label class="col-md-4 control-label" asp-for="@Model"></label>
                 <div class="col-md-4">
                     <br>
                     <button type="submit" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
