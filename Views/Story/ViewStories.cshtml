@@ -31,12 +31,12 @@
             }
             <div class="col-md-4">
                 <a class="btn btn-primary" asp-action="AddComment" asp-route-title="@story.Title">Add a Comment</a>
-            </div><br />            
-            <div class="col-md-4">
-                <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Your Story</a>
             </div>
         }
-        <br>
+    <br />
+        <div class="col-md-4">
+            <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Your Story</a>
+        </div>
     </div>
 </body>
 </html>
