@@ -22,7 +22,7 @@
                     <label class="col-md-4 control-label" asp-for="@Model">Title</label>
                     <div class="col-md-8 inputGroupContainer">
                         <div class="input-group">
-                            <input name="title" placeholder="Title" class="form-control" type="text">
+                            <input name="title" asp-for="@Model" placeholder="Title" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <label class="col-md-4 control-label" asp-for="@Model">Storyteller</label>
                     <div class="col-md-8 inputGroupContainer">
                         <div class="input-group">
-                            <input name="storyTeller" placeholder="Your Name" class="form-control" type="text">
+                            <input name="storyTeller" asp-for="@Model" placeholder="Your Name" class="form-control" type="text">
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <label class="col-md-4 control-label" asp-for="@Model">Story</label>
                     <div class="col-md-12 inputGroupContainer">
                         <div class="input-group">
-                            <textarea class="form-control" name="storyText" placeholder="Once upon a time at Dodger Stadium..." rows="3"></textarea>
+                            <textarea class="form-control" name="storyText" asp-for="@Model" placeholder="Once upon a time at Dodger Stadium..." rows="3"></textarea>
                         </div>
                     </div>
                 </div>

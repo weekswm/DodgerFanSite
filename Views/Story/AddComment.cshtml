@@ -20,7 +20,7 @@
                 <label class="col-md-4 control-label" asp-for="@Model">Commenter</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
-                        <input name="commenter" placeholder="Your Name" class="form-control" type="text">
+                        <input name="commenter" asp-for="@Model" placeholder="Your Name" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <label class="col-md-4 control-label" asp-for="@Model">Comment</label>
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
-                        <textarea class="form-control" name="commentText" placeholder="As a fellow fan of the LA Dodgers..." rows="3"></textarea>
+                        <textarea class="form-control" name="commentText" asp-for="@Model" placeholder="As a fellow fan of the LA Dodgers..." rows="3"></textarea>
                     </div>
                 </div>
             </div>
