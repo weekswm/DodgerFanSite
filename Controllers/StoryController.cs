@@ -12,7 +12,6 @@ namespace DodgersFanSite.Controllers
     public class StoryController : Controller
     {
         Story story;
-        int totalComments;
         public StoryController()
         {
             // This is temporary code, just for testing
