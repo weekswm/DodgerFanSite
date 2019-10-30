@@ -9,5 +9,6 @@ namespace DodgersFanSite.Models
     {
         public string CommentText { get; set; }
         public User Commenter { get; set; }
+        public object ViewBag { get; }
     }
 }

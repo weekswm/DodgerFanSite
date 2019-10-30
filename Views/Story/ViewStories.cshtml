@@ -22,7 +22,7 @@
             <br />
             @if (story.Comments.Count > 0)
             {
-                <h4>Comments</h4>
+                <h4>@ViewBag.TotalComments Comments</h4>
                 @foreach (Comment c in story.Comments)
                 {
                     @c.CommentText <br />

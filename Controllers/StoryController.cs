@@ -12,6 +12,7 @@ namespace DodgersFanSite.Controllers
     public class StoryController : Controller
     {
         Story story;
+        int totalComments;
         public StoryController()
         {
             // This is temporary code, just for testing
@@ -29,12 +30,15 @@ namespace DodgersFanSite.Controllers
                 };
                 StoryRepository.AddStory(story);
             }
+
         }
 
         public IActionResult ViewStories()
         {
             List<Story> stories = StoryRepository.Stories;
             stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
+            foreach (Story story in stories)
+                ViewBag.TotalComments = story.Comments.Count();
             return View(stories);
         }
 
@@ -58,7 +62,6 @@ namespace DodgersFanSite.Controllers
                 StoryText = storyText
             };
             StoryRepository.AddStory(story);  // this is temporary, in the future the data will go in a database
-
             return RedirectToAction("ViewStories");
         }
 
@@ -78,6 +81,7 @@ namespace DodgersFanSite.Controllers
                 Commenter = new User() { Name = commenter },
                 CommentText = commentText
             });
+
             return RedirectToAction("ViewStories");
         }
     }
