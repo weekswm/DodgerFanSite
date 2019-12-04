@@ -7,6 +7,7 @@ namespace DodgersFanSite.Models
 {
     public class Story
     {
+        public int StoryID { get; set; }
         private List<Comment> comments = new List<Comment>();
         public string Title { get; set; }
         public User StoryTeller { get; set; }

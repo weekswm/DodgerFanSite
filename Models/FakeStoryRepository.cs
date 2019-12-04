@@ -15,6 +15,12 @@ namespace DodgersFanSite.Models
             stories.Add(story);
         }
 
+        public void AddComment(Story story, Comment comment)
+        {
+            Story theStory = stories.First<Story>(s => s.StoryID == story.StoryID);
+            theStory.Comments.Add(comment);
+        }
+
         public Story GetUserStoryByTitle(string title)
         {
             Story story = stories.Find(s => s.Title == title);

@@ -9,6 +9,7 @@ namespace DodgersFanSite.Models
     {
         List<Story> Stories { get; }
         void AddStory(Story story);
+        void AddComment(Story story, Comment comment);
         Story GetUserStoryByTitle(string title);
     }
 }

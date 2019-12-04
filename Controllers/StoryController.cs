@@ -80,11 +80,12 @@ namespace DodgersFanSite.Controllers
                                                 string commenter)
         {
             Story story = repo.GetUserStoryByTitle(title);
-            story.Comments.Add(new Comment()
-            {
-                Commenter = new User() { Name = commenter },
-                CommentText = commentText
-            });
+            repo.AddComment(story,
+                new Comment()
+                {
+                    Commenter = new User() { Name = commenter },
+                    CommentText = commentText
+                });
 
             return RedirectToAction("ViewStories");
         }

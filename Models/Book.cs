@@ -9,6 +9,7 @@ namespace DodgersFanSite.Models
     {
         private List<Book> books = new List<Book>();
 
+        public int BookID { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime PubDate { get; set; }

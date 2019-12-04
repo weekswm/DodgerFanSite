@@ -11,6 +11,7 @@ namespace DodgersFanSite.Models
         private List<Story> stories = new List<Story>();
         private List<Comment> comments = new List<Comment>();
 
+        public int UserID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public List<Story> Stories { get { return stories; } }

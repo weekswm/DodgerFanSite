@@ -9,6 +9,7 @@ namespace DodgersFanSite.Models
     {
         private List<Link> links = new List<Link>();
 
+        public int LinkID { get; set; }
         public string Website { get; set; }
         public string Desc { get; set; }
 
