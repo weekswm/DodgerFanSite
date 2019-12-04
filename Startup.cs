@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using DodgersFanSite.Models;
 
 namespace DodgersFanSite
 {
@@ -30,7 +32,10 @@ namespace DodgersFanSite
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["Data:ConnectionStrings:MsSqlConnection"]));
+            services.AddTransient<IStoryRepository, StoryRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
