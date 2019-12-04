@@ -12,10 +12,15 @@ namespace DodgersFanSite.Controllers
     public class StoryController : Controller
     {
         Story story;
+        IStoryRepository repo;
+        public StoryController(IStoryRepository r)
+        {
+            repo = r;
+        }
         public StoryController()
         {
             // This is temporary code, just for testing
-            if (StoryRepository.Stories.Count == 0)  // only do this if it hasn't been done already
+            if (repo.Stories.Count == 0)  // only do this if it hasn't been done already
             {
                 story = new Story()
                 {
@@ -27,14 +32,14 @@ namespace DodgersFanSite.Controllers
                     },
                     StoryText = "Eckersley was on the mound..."
                 };
-                StoryRepository.AddStory(story);
+                repo.AddStory(story);
             }
 
         }
 
         public IActionResult ViewStories()
         {
-            List<Story> stories = StoryRepository.Stories;
+            List<Story> stories = repo.Stories;
             stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             foreach (Story story in stories)
                 ViewBag.TotalComments = story.Comments.Count();
@@ -60,7 +65,7 @@ namespace DodgersFanSite.Controllers
                 },
                 StoryText = storyText
             };
-            StoryRepository.AddStory(story);  // this is temporary, in the future the data will go in a database
+            repo.AddStory(story);  // this is temporary, in the future the data will go in a database
             return RedirectToAction("ViewStories");
         }
 
@@ -74,7 +79,7 @@ namespace DodgersFanSite.Controllers
                                                 string commentText,
                                                 string commenter)
         {
-            Story story = StoryRepository.GetUserStoryByTitle(title);
+            Story story = repo.GetUserStoryByTitle(title);
             story.Comments.Add(new Comment()
             {
                 Commenter = new User() { Name = commenter },
