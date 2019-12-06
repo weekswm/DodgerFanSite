@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace DodgersFanSite.Models
@@ -10,47 +11,31 @@ namespace DodgersFanSite.Models
     // Ultimately, data will be stored in a database
     public class StoryRepository : IStoryRepository
     {
-        private static List<Story> stories = new List<Story>();
+        private AppDbContext context;
+        public List<Story> Stories { get { return context.Stories.Include("Comments").ToList(); } }
 
-        public List<Story> Stories { get { return stories; } }
-
-        public StoryRepository()
+        public StoryRepository(AppDbContext appDbContext)
         {
-            if (stories.Count == 0)
-            {
-                AddSeedData();
-            }
+            context = appDbContext;
         }
         public void AddStory(Story story)
         {
-            stories.Add(story);
+            context.Stories.Add(story);
+            context.SaveChanges();
         }
 
         public Story GetUserStoryByTitle(string title)
         {
-            Story story = stories.Find(s => s.Title == title);
+            Story story;
+            story = context.Stories.First(s => s.Title == title);
             return story;
         }
 
         public void AddComment(Story story, Comment comment)
         {
-            Story theStory = stories.First<Story>(s => s.StoryID == story.StoryID);
-            theStory.Comments.Add(comment);
-        }
-
-        void AddSeedData()
-        {
-            Story story = new Story()
-            {
-                Title = "1988 World Series, game 1",
-                StoryTeller = new User()
-                {
-                    Name = "Vin Scully",
-                    Email = "dodger4life@dodgers.com"
-                },
-                StoryText = "Eckersley was on the mound..."
-            };
-            stories.Add(story);
+            story.Comments.Add(comment);
+            context.Stories.Update(story);
+            context.SaveChanges();
         }
     }
 }

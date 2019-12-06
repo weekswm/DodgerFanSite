@@ -12,6 +12,7 @@ namespace DodgersFanSite.Models
 
         public void AddStory(Story story)
         {
+            story.StoryID = stories.Count;
             stories.Add(story);
         }
 
