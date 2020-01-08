@@ -12,6 +12,8 @@ namespace DodgersFanSite.Models
     public class StoryRepository : IStoryRepository
     {
         private AppDbContext context;
+
+        // Get all stories + associated data by using the EF Include method.
         public List<Story> Stories { get { return context.Stories.Include(story => story.StoryTeller)
             .Include(story => story.Comments).ThenInclude(comment => comment.Commenter).ToList(); } }
 

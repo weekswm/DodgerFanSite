@@ -7,14 +7,14 @@ namespace DodgersFanSite.Models
 {
     public class User
     {
-        
-        private List<Story> stories = new List<Story>();
         private List<Comment> comments = new List<Comment>();
 
         public int UserID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public List<Story> Stories { get { return stories; } }
+
+        // These are "navigational properties" that will cause
+        // EF to generate FK field for UserID in the Comments table.
         public List<Comment> Comments { get { return comments; } }
 
     }
