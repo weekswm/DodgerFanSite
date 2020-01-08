@@ -12,7 +12,8 @@ namespace DodgersFanSite.Models
     public class StoryRepository : IStoryRepository
     {
         private AppDbContext context;
-        public List<Story> Stories { get { return context.Stories.Include("Comments").ToList(); } }
+        public List<Story> Stories { get { return context.Stories.Include(story => story.StoryTeller)
+            .Include(story => story.Comments).ThenInclude(comment => comment.Commenter).ToList(); } }
 
         public StoryRepository(AppDbContext appDbContext)
         {

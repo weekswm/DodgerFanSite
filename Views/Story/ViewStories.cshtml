@@ -26,6 +26,7 @@
                 @foreach (Comment c in story.Comments)
                 {
                     @c.CommentText <br />
+                    @: by:  @c.Commenter.Name <br><br>
                 }
                 <br />
             }
@@ -33,7 +34,7 @@
                 <a class="btn btn-primary" asp-action="AddComment" asp-route-title="@story.Title">Add a Comment</a>
             </div><br />
         }
-    <br />
+        <br />
         <div class="col-md-4">
             <a class="btn btn-primary" asp-controller="Story" asp-action="AddStory">Add Your Story</a>
         </div>
