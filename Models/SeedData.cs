@@ -11,7 +11,7 @@ namespace DodgersFanSite.Models
         {
             if (!context.Stories.Any())
             {
-                User user = new User { Name = "Vin Scully" };
+                User user = new User { Name = "Vin Scully", Email = "GOATAnnouncer@dodgerbaseball.com" };
                 context.Users.Add(user);
 
                 Comment comment = new Comment
@@ -24,7 +24,8 @@ namespace DodgersFanSite.Models
                 Story story = new Story
                 {
                     Title = "1988 World Series, game 1",
-                    StoryText = "Eckersley was on the mound..."
+                    StoryText = "Eckersley was on the mound...",
+                    StoryTeller = user
                 };
                 story.Comments.Add(comment);
                 context.Stories.Add(story);

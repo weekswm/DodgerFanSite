@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace DodgersFanSite.Models
 {
@@ -10,7 +11,11 @@ namespace DodgersFanSite.Models
         private List<Comment> comments = new List<Comment>();
 
         public int UserID { get; set; }
+
+        [Required]
         public string Name { get; set; }
+
+        [EmailAddressAttribute]
         public string Email { get; set; }
 
         // These are "navigational properties" that will cause
