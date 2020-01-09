@@ -12,10 +12,8 @@ namespace DodgersFanSite.Models
 
         public int UserID { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [EmailAddressAttribute]
         public string Email { get; set; }
 
         // These are "navigational properties" that will cause

@@ -21,14 +21,12 @@
         <br />
     </div>
     <div class="container">
-        <div asp-validation-summary="ModelOnly" style="background-color: red"></div>
         <form method="post" asp-controller="Story">
             <div class="form-group">
                 <label class="col-md-4 control-label">Title</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
-                        <span asp-validation-for="Title"></span>
-                        <input asp-for="Title" placeholder="Title" class="form-control" type="text">
+                        <input name="title" placeholder="Title" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -36,8 +34,7 @@
                 <label class="col-md-4 control-label">StoryTeller</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
-                        <span asp-validation-for="StoryTeller"></span>
-                        <input asp-for="StoryTeller" placeholder="Your Name" class="form-control" type="text">
+                        <input name="storyTeller" placeholder="Your Name" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -45,8 +42,7 @@
                 <label class="col-md-4 control-label">Story</label>
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
-                        <span asp-validation-for="StoryText"></span>
-                        <textarea class="form-control" asp-for="StoryText" placeholder="Once upon a time at Dodger Stadium..." rows="3"></textarea>
+                        <textarea class="form-control" name="storyText" placeholder="Once upon a time at Dodger Stadium..." rows="3"></textarea>
                     </div>
                 </div>
             </div>

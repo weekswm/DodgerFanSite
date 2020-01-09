@@ -11,7 +11,6 @@ namespace DodgersFanSite.Models
         public int CommentID { get; set; }
         public string CommentText { get; set; }
 
-        [Required]
         // EF will generate a FK field, CommenterUserID, in the Comment table.
         public User Commenter { get; set; }
 

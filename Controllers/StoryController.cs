@@ -36,19 +36,16 @@ namespace DodgersFanSite.Controllers
                                               string storyTeller, 
                                               string storyText)
         {
-            if (ModelState.IsValid)
+            Story story = new Story
             {
-                Story story = new Story
+                Title = title,
+                StoryTeller = new User
                 {
-                    Title = title,
-                    StoryTeller = new User
-                    {
-                        Name = storyTeller
-                    },
-                    StoryText = storyText
-                };
-                repo.AddStory(story);  // this is temporary, in the future the data will go in a database
-            }
+                    Name = storyTeller
+                },
+                StoryText = storyText
+            };
+            repo.AddStory(story);  // this is temporary, in the future the data will go in a database
             return RedirectToAction("ViewStories");
         }
 
@@ -62,16 +59,13 @@ namespace DodgersFanSite.Controllers
                                                 string commentText,
                                                 string commenter)
         {
-            if (ModelState.IsValid)
-            {
-                Story story = repo.GetUserStoryByTitle(title);
-                repo.AddComment(story,
-                    new Comment()
-                    {
-                        Commenter = new User() { Name = commenter },
-                        CommentText = commentText
-                    });
-            }
+            Story story = repo.GetUserStoryByTitle(title);
+            repo.AddComment(story,
+                new Comment()
+                {
+                    Commenter = new User() { Name = commenter },
+                    CommentText = commentText
+                });
             return RedirectToAction("ViewStories");
         }
     }
