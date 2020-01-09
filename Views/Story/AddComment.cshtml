@@ -1,4 +1,4 @@
-﻿@model Comment
+﻿@model String;
 @{
     ViewData["Title"] = "AddComment";
 }
@@ -13,10 +13,9 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 
-    <div asp-validation-summary="ModelOnly" style="background-color: red"></div>
     <div class="text-center">
         <br />
-        <h1 class="display-4">Comment About<em> @Model.Commenter's </em>Story</h1>
+        <h1 class="display-4">Comment About<em> @Model </em></h1>
         <br />
     </div>
     <div class="container">
@@ -25,8 +24,7 @@
                 <label class="col-md-4 control-label">Commenter</label>
                 <div class="col-md-8 inputGroupContainer">
                     <div class="input-group">
-                        <span asp-validation-for="Commenter"></span>
-                        <input asp-for="Commenter" placeholder="Your Name" class="form-control" type="text">
+                        <input name="commenter" placeholder="Your Name" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -34,8 +32,7 @@
                 <label class="col-md-4 control-label">Comment</label>
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
-                        <span asp-validation-for="CommentText"></span>
-                        <textarea class="form-control" asp-for="CommentText" placeholder="As a fellow fan of the LA Dodgers..." rows="3"></textarea>
+                        <textarea class="form-control" name="commentText" placeholder="As a fellow fan of the LA Dodgers..." rows="3"></textarea>
                     </div>
                 </div>
             </div>

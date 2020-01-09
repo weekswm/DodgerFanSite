@@ -9,8 +9,6 @@ namespace DodgersFanSite.Models
     public class Comment
     {
         public int CommentID { get; set; }
-
-        [StringLength(1000, MinimumLength = 10)]
         public string CommentText { get; set; }
 
         [Required]
